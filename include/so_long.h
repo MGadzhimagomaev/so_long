@@ -1,0 +1,123 @@
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
+# include "../libft/libft.h"
+# include "../mlx/mlx.h"
+# include <unistd.h>
+# include <fcntl.h>
+# include <errno.h>
+# include <math.h>
+# include <stdio.h>
+
+# define ESC                53
+# define IMG_SIZE           50
+# define WND_NAME           "so_long"
+# define WALL               '1'
+# define FLOOR              '0'
+# define COLLECTIBLE        'C'
+# define PLAYER             'P'
+# define EXIT               'E'
+
+# define FRONT				1
+# define LEFT				2
+# define RIGHT				3
+# define BACK				4
+
+# define KEY_UP             13
+# define KEY_DOWN           1
+# define KEY_LEFT           0
+# define KEY_RIGHT          2
+
+# define KEY_W				119
+# define KEY_A				97
+# define KEY_S				115
+# define KEY_D				100
+
+# define KEY_Q				113
+# define KEY_ESC  			65307
+
+# define WALL_XPM			"assets/sprites/wall.xpm"
+# define FLOOR_XPM			"assets/sprites/floor.xpm"
+# define COINS_XPM			"assets/sprites/coin-bag.xpm"
+# define PLAYER_UP_1_XPM	"assets/sprites/player/up_1.xpm"
+# define PLAYER_UP_2_XPM	"assets/sprites/player/up_2.xpm"
+# define PLAYER_LEFT_1_XPM	"assets/sprites/player/left_1.xpm"
+# define PLAYER_LEFT_2_XPM	"assets/sprites/player/left_2.xpm"
+# define PLAYER_RIGHT_1_XPM	"assets/sprites/player/right_1.xpm"
+# define PLAYER_RIGHT_2_XPM	"assets/sprites/player/right_2.xpm"
+# define PLAYER_BACK_1_XPM	"assets/sprites/player/back_1.xpm"
+# define PLAYER_BACK_2_XPM	"assets/sprites/player/back_2.xpm"
+# define OPEN_EXIT_XPM		"assets/sprites/open-exit.xpm"
+# define EXIT_CLOSED_XPM	"assets/sprites/exit-closed.xpm"
+
+typedef struct s_player
+{
+	int	y;
+	int	x;
+} t_player;
+
+typedef struct s_img
+{
+	void	*empty;
+	void	*collectible;
+	void	*wall;
+	void	*exit;
+	void	*move_up1;
+	void	*move_up2;
+	void	*move_down1;
+	void	*move_down2;
+	void	*move_left1;
+	void	*move_left2;
+	void	*move_right1;
+	void	*move_right2;
+} t_img;
+
+typedef struct s_map
+{
+	int			fd;
+	char		*line;
+	char		*file;
+	char		**array;
+	char		**copy;
+	char		*file_name;
+	int			y;
+	int			x;
+	int			e;
+	int			c;
+	int			c_check;
+	int			e_check;
+	int			p;
+	int			exit;
+	int			moves;
+	void		*mlx;
+	void		*wnd;
+	t_img		img;
+	t_player	player;
+} t_map;
+
+void	error_filename(void);
+void	error_wall(t_map *map);
+void	error_open_file(void);
+void	error_size(t_map *map);
+void	error_map_elements(t_map *map);
+
+void    initialize_map(t_map *map, char **argv);
+void	file_to_image(t_map *map);
+void	file_to_image_player(t_map *map);
+void	generate_map_array(t_map *map);
+void	ft_exit_free(t_map *map);
+int		ft_free_array(char **ret, int i);
+void    validate_path(t_map *map);
+void    validate_map(t_map *map);
+void    locate_player(t_map *map);
+void	map_printer(t_map *map);
+void	print_movements(t_map *map);
+void	move_up(t_map *map);
+void	move_down(t_map *map);
+void	move_left(t_map *map);
+void	move_right(t_map *map);
+int		key_hook(int key, t_map *map);
+int		ft_close(t_map *map);
+void	ft_win(t_map *map);
+
+#endif
