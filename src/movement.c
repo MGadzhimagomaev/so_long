@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movement.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/24 17:08:51 by mgadzhim          #+#    #+#             */
+/*   Updated: 2025/12/24 17:21:37 by mgadzhim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
 static void	handle_input(t_map *map, int x, int y, int key)
@@ -5,11 +17,11 @@ static void	handle_input(t_map *map, int x, int y, int key)
 	if (key == KEY_UP)
 		y -= 1;
 	if (key == KEY_DOWN)
-	y += 1;
+		y += 1;
 	if (key == KEY_LEFT)
 		x -= 1;
 	if (key == KEY_RIGHT)
-	x += 1;
+		x += 1;
 	if (map->array[y][x] == EXIT && map->c == 0)
 		return (ft_win(map));
 	if (map->array[y][x] == COLLECTIBLE)
@@ -69,7 +81,7 @@ void	move_left(t_map *map)
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.move_left1,
 			x * IMG_SIZE + 8, y * IMG_SIZE);
 		map->array[y][x] = PLAYER;
-	map->player.y = y;
+		map->player.y = y;
 	}
 }
 

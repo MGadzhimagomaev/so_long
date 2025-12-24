@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgadzhim <mgadzhim@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 21:39:17 by mgadzhim          #+#    #+#             */
-/*   Updated: 2025/05/15 21:46:00 by mgadzhim         ###   ########.fr       */
+/*   Updated: 2025/12/24 15:11:12 by mgadzhim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (*s)
-	{
+	while (s && s[i])
 		i++;
-		s++;
-	}
-	return (sizeof(char) * i);
+	return (i);
 }
 /*
 #include <stdio.h>

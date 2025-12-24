@@ -6,7 +6,7 @@
 /*   By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 20:51:31 by mgadzhim          #+#    #+#             */
-/*   Updated: 2025/12/24 11:53:01 by mgadzhim         ###   ########.fr       */
+/*   Updated: 2025/12/24 17:07:47 by mgadzhim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include "get_next_line.h"
+# include <stdio.h>
 
 typedef struct s_list
 {
@@ -51,7 +52,8 @@ int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_substr_free(char const *s, unsigned int start, size_t len, int to_free);
+char	*ft_substr_free(char const *s, unsigned int start, size_t len,
+			int to_free);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strjoin_free(char *s1, char *s2);
 char	*ft_strtrim(char const *s1, char const *set);

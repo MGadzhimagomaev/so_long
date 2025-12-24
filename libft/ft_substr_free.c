@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_substr_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 19:58:39 by mgadzhim          #+#    #+#             */
-/*   Updated: 2025/06/01 19:21:40 by mgadzhim         ###   ########.fr       */
+/*   Updated: 2025/12/24 17:05:20 by mgadzhim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr_free(char const *s, unsigned int start, size_t len, int to_free)
+char	*ft_substr_free(char const *s, unsigned int start, size_t len,
+			int to_free)
 {
 	char	*output;
 	size_t	s_len;
