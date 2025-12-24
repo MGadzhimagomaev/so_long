@@ -1,91 +1,81 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 19:57:35 by mgadzhim          #+#    #+#             */
-/*   Updated: 2025/06/01 19:52:21 by mgadzhim         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	word_count(char const *s, char c)
+int is_delimiter (char c, char del)
 {
-	size_t	count;
-	size_t	i;
-
-	count = 0;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] != c && ((s[i - 1] == c) || (i == 0)))
-			count++;
-		i++;
-	}
-	return (count);
+    if (c == del)
+        return (1);
+    return (0);
 }
 
-static void	free_mem(char	**str, size_t	n)
+int word_count (char *str, char del)
 {
-	size_t	i;
+    int i;
+    int count;
 
-	i = 0;
-	while (i < n)
-	{
-		free (str[i++]);
-	}
-	free(str);
+    count = 0;
+    i = 0;
+    while (str[i])
+    {
+        if (str[i] && (i == 0 || is_delimiter(str[i - 1], del)) && !is_delimiter(str[i], del))
+            count++;
+        i++;
+    }
+    return (count);
 }
 
-static int	ft_fill_array(char **arr, char const *s, char c)
+int find_next_word (char *str, int *start, int *end, char del)
 {
-	size_t	i;
-	size_t	start;
-	size_t	element;
+    int i;
 
-	i = 0;
-	start = 0;
-	element = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > start)
-		{
-			arr[element++] = ft_substr(s, start, i - start);
-			if (!(arr[element - 1]))
-				return (free_mem(arr, element - 1), 0);
-		}
-	}
-	arr[element] = NULL;
-	return (1);
+    i = *start;
+    while (str[i])
+    {
+        if (str[i] && (i == 0 || is_delimiter(str[i - 1], del)) 
+        && !is_delimiter(str[i], del))
+        {
+            *start = i;
+            while (str[i] && !is_delimiter(str[i], del))
+                i++;
+            *end = i - 1;
+            return(1);
+        }
+        i++;
+    }
+    return (0);
 }
 
-char	**ft_split(char const *s, char c)
+char **fill_words(char **output, char *str, int word_count, char del)
 {
-	char	**arr;
+    int start = 0;
+    int end = 1;
+    int i;
+    int word;
 
-	arr = (char **)ft_calloc((word_count(s, c) + 1), sizeof(char *));
-	if (!arr)
-		return (NULL);
-	if (!ft_fill_array(arr, s, c))
-		return (NULL);
-	return (arr);
+    word = 0;
+    while (word < word_count && find_next_word (str, &start, &end, del))
+    {
+        i = 0;
+        output[word] = malloc(sizeof(char) * (end - start + 2));
+        if (!output[word])
+            return(free(output[word]), NULL);
+        while (start <= end)
+        {
+            output[word][i++] = str[start++];
+        }
+        output[word][i] = '\0';
+        word++;
+    }
+    output[word] = NULL;
+    return (output);
 }
-/*
-#include <stdio.h>
 
-int	main(void)
+char    **ft_split(char *str, char del)
 {
-	char **out = ft_split("a b  c", ' ');
+    char **output;
 
-	for (int i = 0; out[i]; i++)
-		printf("Word %d: %s\n", i, out[i]);
+    output = malloc(sizeof(char*) * (word_count(str, del) + 1));
+    if (!output)
+        return NULL;
+    return (fill_words(output, str, word_count(str, del), del));
 }
-//*/

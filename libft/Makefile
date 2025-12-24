@@ -6,7 +6,7 @@
 #    By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 19:53:33 by mgadzhim          #+#    #+#              #
-#    Updated: 2025/12/16 21:02:41 by mgadzhim         ###   ########.fr        #
+#    Updated: 2025/12/24 11:12:40 by mgadzhim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJ			= $(SRC:.c=.o)
 HEADER		= libft.h
 
 .c.o:
-	cc -Wall -Wextra -Werror -c $< -o $@
+	cc -Wall -Wextra -Werror -c $< -o $@ -fPIE
 
 $(NAME): ${OBJ}
 	ar rcs ${NAME} ${OBJ}
