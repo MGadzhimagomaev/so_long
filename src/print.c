@@ -6,7 +6,7 @@
 /*   By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 17:08:51 by mgadzhim          #+#    #+#             */
-/*   Updated: 2025/12/24 17:16:31 by mgadzhim         ###   ########.fr       */
+/*   Updated: 2025/12/25 14:46:48 by mgadzhim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	map_type(t_map *map, int x, int y)
 			map->img.collectible, x, y);
 	else if (type == PLAYER)
 		mlx_put_image_to_window(map->mlx, map->wnd,
-			map->img.move_down1, x + 8, y);
+			map->img.move_down1, x, y);
 	else if (type == EXIT)
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.exit, x, y);
 	else if (type == WALL)

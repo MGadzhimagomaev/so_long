@@ -6,7 +6,7 @@
 /*   By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 17:08:51 by mgadzhim          #+#    #+#             */
-/*   Updated: 2025/12/24 17:21:37 by mgadzhim         ###   ########.fr       */
+/*   Updated: 2025/12/25 14:41:38 by mgadzhim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	move_up(t_map *map)
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.empty,
 			x * IMG_SIZE, y * IMG_SIZE);
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.move_up1,
-			x * IMG_SIZE + 8, y * IMG_SIZE);
+			x * IMG_SIZE, y * IMG_SIZE);
 		map->array[y][x] = PLAYER;
 		map->player.x = x;
 	}
@@ -79,7 +79,7 @@ void	move_left(t_map *map)
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.empty,
 			x * IMG_SIZE, y * IMG_SIZE);
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.move_left1,
-			x * IMG_SIZE + 8, y * IMG_SIZE);
+			x * IMG_SIZE, y * IMG_SIZE);
 		map->array[y][x] = PLAYER;
 		map->player.y = y;
 	}
@@ -105,7 +105,7 @@ void	move_down(t_map *map)
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.empty,
 			x * IMG_SIZE, y * IMG_SIZE);
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.move_down1,
-			x * IMG_SIZE + 8, y * IMG_SIZE);
+			x * IMG_SIZE, y * IMG_SIZE);
 		map->array[y][x] = PLAYER;
 		print_movements(map);
 		map->player.y = y;
@@ -132,7 +132,7 @@ void	move_right(t_map *map)
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.empty,
 			x * IMG_SIZE, y * IMG_SIZE);
 		mlx_put_image_to_window(map->mlx, map->wnd, map->img.move_right1,
-			x * IMG_SIZE + 8, y * IMG_SIZE);
+			x * IMG_SIZE, y * IMG_SIZE);
 		map->array[y][x] = PLAYER;
 		print_movements(map);
 	}

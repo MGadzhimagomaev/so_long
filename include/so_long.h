@@ -6,7 +6,7 @@
 /*   By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 17:12:52 by mgadzhim          #+#    #+#             */
-/*   Updated: 2025/12/24 17:38:30 by mgadzhim         ###   ########.fr       */
+/*   Updated: 2025/12/25 15:26:26 by mgadzhim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,6 @@
 
 # define KEY_Q				113
 # define KEY_ESC			65307
-
-# define WALL_XPM			"assets/sprites/wall.xpm"
-# define FLOOR_XPM			"assets/sprites/floor.xpm"
-# define COINS_XPM			"assets/sprites/coin-bag.xpm"
-# define PLAYER_UP_1_XPM	"assets/sprites/player/up_1.xpm"
-# define PLAYER_UP_2_XPM	"assets/sprites/player/up_2.xpm"
-# define PLAYER_LEFT_1_XPM	"assets/sprites/player/left_1.xpm"
-# define PLAYER_LEFT_2_XPM	"assets/sprites/player/left_2.xpm"
-# define PLAYER_RIGHT_1_XPM	"assets/sprites/player/right_1.xpm"
-# define PLAYER_RIGHT_2_XPM	"assets/sprites/player/right_2.xpm"
-# define PLAYER_BACK_1_XPM	"assets/sprites/player/back_1.xpm"
-# define PLAYER_BACK_2_XPM	"assets/sprites/player/back_2.xpm"
-# define OPEN_EXIT_XPM		"assets/sprites/open-exit.xpm"
-# define EXIT_CLOSED_XPM	"assets/sprites/exit-closed.xpm"
 
 typedef enum e_tile
 {

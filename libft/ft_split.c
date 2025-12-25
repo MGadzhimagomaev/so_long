@@ -6,7 +6,7 @@
 /*   By: mgadzhim <mgadzhim@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 17:04:24 by mgadzhim          #+#    #+#             */
-/*   Updated: 2025/12/24 17:04:43 by mgadzhim         ###   ########.fr       */
+/*   Updated: 2025/12/25 13:18:17 by mgadzhim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,14 @@ int	find_next_word(char *str, int *start, int *end, char del)
 
 char	**fill_words(char **output, char *str, int word_count, char del)
 {
-	static int	start = 0;
-	static int	end = 1;
-	int			i;
-	int			word;
+	int	start;
+	int	end;
+	int	i;
+	int	word;
 
 	word = 0;
+	start = 0;
+	end = 1;
 	while (word < word_count && find_next_word (str, &start, &end, del))
 	{
 		i = 0;
